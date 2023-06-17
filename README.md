@@ -1,22 +1,19 @@
-
-# Breadit - A Modern Fullstack Reddit Clone 
+# Breadit - A Modern Fullstack Reddit Clone
 
 Built with the Next.js App Router, TypeScript & Tailwind
 
-
 ## Features
 
- - Infinite scrolling for dynamically loading posts
- - Authentication using NextAuth & Google
- - Custom feed for authenticated users
- - Advanced caching using [Upstash Redis](https://upstash.com/?utm_source=Josh2)
- - Optimistic updates for a great user experience
- - Modern data fetching using React-Query
- - A beautiful and highly functional post editor
- - Image uploads & link previews
- - Full comment functionality with nested replies
- - ... and much more
-
+- Infinite scrolling for dynamically loading posts
+- Authentication using NextAuth & Google
+- Custom feed for authenticated users
+- Advanced caching using [Upstash Redis](https://upstash.com/?utm_source=Josh2)
+- Optimistic updates for a great user experience
+- Modern data fetching using React-Query
+- A beautiful and highly functional post editor
+- Image uploads & link previews
+- Full comment functionality with nested replies
+- ... and much more
 
 ## Getting started
 
@@ -43,6 +40,7 @@ REDIS_SECRET=
 ```
 
 if you'd like, you can paste this snippet for quick component creation (optional):
+
 ```typescript
 // vscode settings -> user snippets -> typescriptreact.json
 ```
@@ -65,10 +63,9 @@ if you'd like, you can paste this snippet for quick component creation (optional
     ],
     "description": "Typescript React Function Component"
   },
-  ```
+```
 
 and that's all you need to get started!
-
 
 ## Acknowledgements
 

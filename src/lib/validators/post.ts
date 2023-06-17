@@ -1,4 +1,4 @@
-import { z } from 'zod'
+import { z } from 'zod';
 
 export const PostValidator = z.object({
   title: z
@@ -11,6 +11,6 @@ export const PostValidator = z.object({
     }),
   subredditId: z.string(),
   content: z.any(),
-})
+});
 
-export type PostCreationRequest = z.infer<typeof PostValidator>
+export type PostCreationRequest = z.infer<typeof PostValidator>;

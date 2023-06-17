@@ -1,6 +1,6 @@
-import { buttonVariants } from '@/components/ui/Button'
-import { toast } from '@/hooks/use-toast'
-import Link from 'next/link'
+import { buttonVariants } from '@/components/ui/Button';
+import { toast } from '@/hooks/use-toast';
+import Link from 'next/link';
 
 export const useCustomToasts = () => {
   const loginToast = () => {
@@ -11,13 +11,14 @@ export const useCustomToasts = () => {
       action: (
         <Link
           onClick={() => dismiss()}
-          href='/sign-in'
-          className={buttonVariants({ variant: 'outline' })}>
+          href="/sign-in"
+          className={buttonVariants({ variant: 'outline' })}
+        >
           Login
         </Link>
       ),
-    })
-  }
+    });
+  };
 
-  return { loginToast }
-}
+  return { loginToast };
+};
