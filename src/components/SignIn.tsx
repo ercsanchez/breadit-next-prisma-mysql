@@ -19,7 +19,7 @@ const SignIn: FC = () => {
           New to breadit?{'  '}
           <Link
             href="/sign-up"
-            className="hover:text-zinc-800 text-sm underline-offset-4"
+            className="hover:text-zinc-800 text-sm underline underline-offset-4"
           >
             Sign Up
           </Link>
