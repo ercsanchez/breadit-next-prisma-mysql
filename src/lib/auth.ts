@@ -20,24 +20,24 @@ export const authOptions: NextAuthOptions = {
   ],
   callbacks: {
     async session({ token, session }) {
-      // console.log('===session executing...===');
+      console.log('===session executing...===');
       if (token) {
-        // console.log('1. token===>', token);
+        console.log('1. token===>', token);
         session.user.id = token.id;
         session.user.name = token.name;
         session.user.email = token.email;
         session.user.image = token.picture;
         session.user.username = token.username;
       }
-      // console.log('2. session===>', session);
+      console.log('2. session===>', session);
       return session;
     },
     async jwt({ token, user }) {
       // user refers to provider account
 
-      // console.log('===jwt executing...===');
-      // console.log('initial token===>', token);
-      // console.log('initial user===>', user);
+      console.log('===jwt executing...===');
+      console.log('initial token===>', token);
+      console.log('initial user===>', user);
       const dbUser = await db.user.findFirst({
         where: {
           email: token.email,
@@ -48,7 +48,7 @@ export const authOptions: NextAuthOptions = {
       if (!dbUser) {
         // assign provider account id to token
         token.id = user!.id;
-        // console.log('final token===>', token);
+        console.log('final token===>', token);
         return token;
       }
       // User gets created after this
@@ -66,13 +66,13 @@ export const authOptions: NextAuthOptions = {
         });
       }
 
-      // console.log('final token===>', {
-      //   id: dbUser.id,
-      //   name: dbUser.name,
-      //   email: dbUser.email,
-      //   picture: dbUser.image,
-      //   username: dbUser.username,
-      // });
+      console.log('final token===>', {
+        id: dbUser.id,
+        name: dbUser.name,
+        email: dbUser.email,
+        picture: dbUser.image,
+        username: dbUser.username,
+      });
 
       return {
         id: dbUser.id,
