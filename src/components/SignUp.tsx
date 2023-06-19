@@ -1,9 +1,14 @@
+'use client';
+
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 import { Icons } from './Icons';
 import UserAuthForm from './UserAuthForm';
 
 const SignIn = () => {
+  const router = useRouter();
+
   return (
     <div className="container mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[400px]">
       <div className="flex flex-col space-y-2 text-center">
@@ -19,6 +24,11 @@ const SignIn = () => {
           <Link
             href="/sign-in"
             className="hover:text-zinc-800 text-sm underline underline-offset-4"
+            onClick={(e) => {
+              e.preventDefault();
+              // const urlHistory = document.referrer;
+              router.replace('/sign-in');
+            }}
           >
             Sign In
           </Link>

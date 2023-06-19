@@ -1,10 +1,16 @@
+'use client';
+
 import { FC } from 'react';
 import Link from 'next/link';
+import { useRouter, usePathname } from 'next/navigation';
 
 import { Icons } from './Icons';
 import UserAuthForm from './UserAuthForm';
 
 const SignIn: FC = () => {
+  const router = useRouter();
+  const pathname = usePathname();
+
   return (
     <div className="container mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[400px]">
       <div className="flex flex-col space-y-2 text-center">
@@ -19,6 +25,11 @@ const SignIn: FC = () => {
           <Link
             href="/sign-up"
             className="hover:text-zinc-800 text-sm underline underline-offset-4"
+            onClick={(e) => {
+              e.preventDefault();
+              // const urlHistory = document.referrer;
+              router.replace('/sign-up');
+            }}
           >
             Sign Up
           </Link>
