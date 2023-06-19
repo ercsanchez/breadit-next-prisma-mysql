@@ -2,13 +2,29 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useMutation } from '@tanstack/react-query';
+import axios from 'axios';
 
 import { Input } from '@/components/ui/Input';
 import { Button } from '@/components/ui/Button';
+import { CreateSubredditPayload } from '@/lib/validators/subreddit';
 
 const Page = ({}) => {
   const [input, setInput] = useState<string>('');
   const router = useRouter();
+
+  const { mutate: createCommunity, isLoading } = useMutation({
+    mutationFn: async () => {
+      const payload: CreateSubredditPayload = {
+        name: input,
+      };
+
+      // const data = await res.json() // fetch version
+      const { data } = await axios.post('/api/subreddit', payload);
+
+      return data as string;
+    },
+  });
 
   return (
     <div className="container flex items-center h-full max-w-3xl mx-auto">
@@ -47,9 +63,9 @@ const Page = ({}) => {
             Cancel
           </Button>
           <Button
-            isLoading={false}
+            isLoading={isLoading}
             disabled={input.length === 0}
-            onClick={() => {}}
+            onClick={() => createCommunity()}
           >
             Create Community
           </Button>
